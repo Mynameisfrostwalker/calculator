@@ -1,0 +1,32 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+div {
+    border: 0.5rem solid rgb(80, 80, 80);
+    font-size: 3rem;
+}
+
+#outerBody {
+    width: 23rem;
+}
+
+#buttonsDisplay {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.4rem;
+}
+
+.buttons {
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0.3rem;
+}
