@@ -1,5 +1,22 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(fontsfolder/digital_7.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: myFirstFontBold;
+    src: url(/fontsfolder/digital_7bold.ttf);
+}
+
 html {
     font-size: 62.5%;
+    text-align: center;
+    background-image: url(/imagesfolder/bac.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: myFirstFont;
 }
 
 body {
@@ -10,12 +27,34 @@ body {
 }
 
 div {
-    border: 0.5rem solid rgb(80, 80, 80);
     font-size: 3rem;
+    background-color: white;
 }
 
 #outerBody {
-    width: 23rem;
+    width: 65vw;
+    height: 55vh;
+    background: linear-gradient(35deg, #000000, #b4b4b4);
+    padding: 10px;
+}
+
+@media (min-width: 810px) {
+    #outerBody {
+        width: 25vw;
+        height: 65vh;
+    }
+}
+
+#innerBody {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+}
+
+#display {
+    text-align: right;
 }
 
 #buttonsDisplay {
@@ -23,10 +62,52 @@ div {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 0.4rem;
+    height: 65%;
+    justify-items: center;
 }
 
 .buttons {
     width: 3.2rem;
-    height: 3.2rem;
+    height: 70%;
     padding: 0.3rem;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+div#add:hover,
+div#multiply:hover,
+div#divide:hover,
+div#subtract:hover,
+div#add:active,
+div#multiply:active,
+div#divide:active,
+div#subtract:active,
+div#equals:hover,
+div#equals:active {
+    border: 5px solid rgb(0, 0, 0);
+    transform: scale(0.8);
+    cursor: default;
+}
+
+div#clear:hover,
+div#clear:active {
+    border: 5px solid rgb(236, 93, 9);
+    transform: scale(0.8);
+    cursor: default;
+}
+
+.buttons:hover,
+.buttons:active {
+    border: 5px solid rgb(156, 218, 243);
+    transform: scale(0.8);
+    cursor: default;
+}
+
+div#store,
+div#mainDisplay {
+    padding: 1em;
+}
+
+div#mainDisplay {
+    font-size: 4.5rem;
 }
