@@ -83,17 +83,9 @@ div#backspace {
     justify-content: center;
 }
 
-div#add:hover,
-div#multiply:hover,
-div#divide:hover,
-div#subtract:hover,
-div#add:active,
-div#multiply:active,
-div#divide:active,
-div#subtract:active,
-div#equals:hover,
-div#equals:active {
-    border: 5px solid rgb(0, 0, 0);
+.operators:hover,
+.operators:active {
+    border: 5px solid rgb(0, 0, 0) !important;
     transform: scale(0.7);
     cursor: default;
 }
