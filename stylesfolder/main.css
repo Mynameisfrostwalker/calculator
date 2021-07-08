@@ -55,6 +55,8 @@ div {
 
 #display {
     text-align: right;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 #buttonsDisplay {

@@ -6,19 +6,24 @@ store.appendChild(paraStore);
 mainDisplay.appendChild(paraMainDisplay);
 
 function add(num1, num2) {
-    return num1 + num2;
+    return parseFloat((num1 + num2).toFixed(5));
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    return parseFloat((num1 - num2).toFixed(5));
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return parseFloat((num1 * num2).toFixed(5));
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    if (num2 === 0) {
+        input = [];
+        problem = [];
+        return "Wish I knew";
+    }
+    return parseFloat((num1 / num2).toFixed(5));
 }
 
 function operate(operator, numOne, numTwo) {
@@ -83,9 +88,11 @@ function equals() {
         input = []
     }
     if (problem.length <= 3) {
-        let finalResult = operate(problem[1], parseInt(problem[0]), parseInt(problem[2]));
+        let finalResult = operate(problem[1], parseFloat(problem[0]), parseFloat(problem[2]));
         problem = [];
-        input = finalResult.toString().split("");
+        if (typeof finalResult === "string") {
+            paraMainDisplay.textContent = finalResult;
+        } else { input = finalResult.toString().split(""); }
     }
 }
 
@@ -99,8 +106,7 @@ function calculate(event) {
     let numreg = /[0-9.]/;
     if (numreg.test(event.target.id)) {
         number(event.target.id)
-    }
-    if (regex.test(event.target.id)) {
+    } else if (regex.test(event.target.id)) {
         operation(event.target.id)
     }
 
