@@ -42,10 +42,16 @@ function number(num) {
             return;
         }
     }
+    if (input[0] === "Wish I knew") {
+        input = [];
+    }
     input.push(num);
 }
 
 function operation(operator) {
+    if (input[0] === "Wish I knew") {
+        input = [];
+    }
     let joined = input.join('');
     if (joined !== '') {
         problem.push(joined);
@@ -92,7 +98,15 @@ function equals() {
         problem = [];
         if (typeof finalResult === "string") {
             paraMainDisplay.textContent = finalResult;
-        } else { input = finalResult.toString().split(""); }
+            let joinProblem = problem.join("")
+            paraStore.textContent = joinProblem;
+        } else {
+            input = finalResult.toString().split("");
+            let joinInput = input.join("");
+            let joinProblem = problem.join("");
+            paraMainDisplay.textContent = joinInput;
+            paraStore.textContent = joinProblem;
+        }
     }
 }
 
@@ -120,6 +134,7 @@ function calculate(event) {
 
     if (event.target.id === "equals") {
         equals()
+        return;
     }
     let numOfNum = 0;
     for (let i = 0; i < problem.length; i++) {
@@ -138,11 +153,3 @@ function calculate(event) {
 
 const buttons = document.querySelectorAll('div.buttons')
 buttons.forEach((button) => { button.addEventListener('click', calculate) })
-    /* create a nodelist of every button, 
-    iterate through each button and add an event listener, 
-    event listener calls a function fde on click. 
-    fde stores event.id in an array when the array 
-    length is 3 its contents are passed into the operate
-    function the out put is added as the first item of the array
-    and the process is repeated until the equal to button is pressed
-    */
