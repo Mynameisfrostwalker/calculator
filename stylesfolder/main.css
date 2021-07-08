@@ -33,15 +33,15 @@ div {
 
 #outerBody {
     width: 65vw;
-    height: 55vh;
+    height: 90vh;
     background: linear-gradient(35deg, #000000, #b4b4b4);
     padding: 10px;
 }
 
 @media (min-width: 810px) {
     #outerBody {
-        width: 25vw;
-        height: 65vh;
+        width: 30vw;
+        height: 80vh;
     }
 }
 
@@ -60,10 +60,16 @@ div {
 #buttonsDisplay {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 0.4rem;
     height: 65%;
     justify-items: center;
+    align-items: center;
+}
+
+div#backspace {
+    grid-area: 1/2/2/5;
+    width: 90%;
 }
 
 .buttons {
@@ -72,6 +78,9 @@ div {
     padding: 0.3rem;
     border-radius: 10px;
     transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 div#add:hover,
@@ -85,21 +94,28 @@ div#subtract:active,
 div#equals:hover,
 div#equals:active {
     border: 5px solid rgb(0, 0, 0);
-    transform: scale(0.8);
+    transform: scale(0.7);
     cursor: default;
 }
 
 div#clear:hover,
 div#clear:active {
     border: 5px solid rgb(236, 93, 9);
-    transform: scale(0.8);
+    transform: scale(0.7);
+    cursor: default;
+}
+
+div#backspace:hover,
+div#backspace:active {
+    border: 5px solid rgb(213, 236, 9);
+    transform: scale(0.7);
     cursor: default;
 }
 
 .buttons:hover,
 .buttons:active {
     border: 5px solid rgb(156, 218, 243);
-    transform: scale(0.8);
+    transform: scale(0.7);
     cursor: default;
 }
 
