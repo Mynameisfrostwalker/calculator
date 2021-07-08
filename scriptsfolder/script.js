@@ -151,5 +151,51 @@ function calculate(event) {
     paraStore.textContent = joinProblem;
 }
 
+function secondCalculate(obj) {
+    let regex = /[*+-\/]/g;
+    let numreg = /[0-9.]/;
+    if (numreg.test(obj.id)) {
+        number(obj.id)
+    } else if (regex.test(obj.id)) {
+        operation(obj.id)
+    }
+
+    if (obj.id === "backspace") {
+        backspace()
+    }
+
+    if (obj.id === "clear") {
+        clear()
+    }
+
+    if (obj.id === "equals") {
+        equals()
+        return;
+    }
+    let numOfNum = 0;
+    for (let i = 0; i < problem.length; i++) {
+        if (/[0-9]/.test(parseInt(problem[i]))) {
+            numOfNum += 1
+            if (numOfNum === 2) {
+                resolve()
+            }
+        }
+    }
+    let joinInput = input.join("");
+    let joinProblem = problem.join("");
+    paraMainDisplay.textContent = joinInput;
+    paraStore.textContent = joinProblem;
+}
+
 const buttons = document.querySelectorAll('div.buttons')
 buttons.forEach((button) => { button.addEventListener('click', calculate) })
+
+
+function key(event) {
+    const button = document.querySelector(`div[data-key='${event.keyCode}']`)
+    secondCalculate(button)
+    console.log(button)
+    console.log(button.id)
+}
+
+window.addEventListener('keydown', key)
